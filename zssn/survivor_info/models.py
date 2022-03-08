@@ -11,7 +11,7 @@ infected_choice = (
 )
 
 class survivorModel(models.Model):
-    name = models.CharField(max_length = 10)
+    name = models.CharField(max_length = 20)
     age = models.IntegerField()
     gender = models.CharField(choices = gender_choice, max_length = 4)
     latitude = models.FloatField()
