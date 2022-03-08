@@ -32,9 +32,14 @@
                 </form>
             </td>
         </tr>
+        
         {% endfor %}
 
     </tbody>
+    <form action="{% url 'survivor_report' %}">
+        {% csrf_token %}
+        <button type="submit">Result</button>
+    </form>
 </table>
 
 {% endblock content %}
