@@ -1,29 +1,20 @@
 from django import forms
+from . models import survivor_model
 
-gender_choice = (
-    ('1','Male'),
-    ('2','Female'),
-    ('3','Unsure')
-)
+class survivor(forms.ModelForm):
 
-infected_choice = (
-    ('1','Yes'),
-    ('2','No')
-)
+    class Meta:
+        model = survivor_model
+        fields = ('name','age','gender','latitude','longitude','infected')
 
-class survivor(forms.Form):
-    name = forms.CharField(max_length = 10)
-    age = forms.IntegerField()
-    gender = forms.ChoiceField(choices = gender_choice)
-    latitude = forms.IntegerField()
-    longitude = forms.CharField()
-    infected = forms.ChoiceField(choices = infected_choice)
-
-    labels = {
+        labels = {
         'name' : 'Name',
         'age' : 'Age',
         'gender' : 'Gender',
         'latitude' : 'Latitude',
         'longitude':'Longitude',
-        'infected':'Infected'
+        'infected':'Isinfected'
     }
+    def __init__(self, *args, **kwargs):
+        super(survivor,self).__init__(*args, **kwargs)
+        self.fields['name'].required = True
