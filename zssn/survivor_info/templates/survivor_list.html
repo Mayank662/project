@@ -1,0 +1,40 @@
+
+{% block content %}
+<td>
+    <form action="{% url 'survivor_insert' %}">
+        <button type="submit">Add New Survivor</button>
+    </form>
+</td>
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Age</td>
+            <td>Gender</td>
+            <td>Latitude</td>
+            <td>Longitude</td>
+            <td>Infected</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for survivor in survivor_list %}
+        <tr>
+            <td>{{survivor.name}}</td>
+            <td>{{survivor.age}}</td>
+            <td>{{survivor.gender}}</td>
+            <td>{{survivor.latitude}}</td>
+            <td>{{survivor.longitude}}</td>
+            <td>{{survivor.infected}}</td>
+            <td>
+                <form action="{% url 'survivor_update' survivor.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Edit</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock content %}

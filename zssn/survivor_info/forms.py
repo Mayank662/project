@@ -1,10 +1,10 @@
 from django import forms
-from . models import survivor_model
+from . models import survivorModel
 
-class survivor(forms.ModelForm):
+class survivorForm(forms.ModelForm):
 
     class Meta:
-        model = survivor_model
+        model = survivorModel
         fields = ('name','age','gender','latitude','longitude','infected')
 
         labels = {
@@ -16,5 +16,5 @@ class survivor(forms.ModelForm):
         'infected':'Isinfected'
     }
     def __init__(self, *args, **kwargs):
-        super(survivor,self).__init__(*args, **kwargs)
+        super(survivorForm,self).__init__(*args, **kwargs)
         self.fields['name'].required = True

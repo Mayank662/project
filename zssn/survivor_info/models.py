@@ -10,7 +10,7 @@ infected_choice = (
     (0,'No')
 )
 
-class survivor_model(models.Model):
+class survivorModel(models.Model):
     name = models.CharField(max_length = 10)
     age = models.IntegerField()
     gender = models.CharField(choices = gender_choice, max_length = 4)
