@@ -17,4 +17,4 @@ class survivorForm(forms.ModelForm):
     }
     def __init__(self, *args, **kwargs):
         super(survivorForm,self).__init__(*args, **kwargs)
-        self.fields['name'].required = True
+        
